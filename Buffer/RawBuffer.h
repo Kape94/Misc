@@ -1,7 +1,7 @@
 #ifndef MISC_RAW_BUFFER
 #define MISC_RAW_BUFFER
 
-#include "Common/MiscNamespaceDefs.h"
+#include "Misc/Common/MiscNamespaceDefs.h"
 
 BEGIN_MISC_NAMESPACE
 

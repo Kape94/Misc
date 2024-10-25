@@ -4,7 +4,7 @@
 #include <unordered_set>
 #include <vector>
 
-#include "Common/MiscNamespaceDefs.h"
+#include "Misc/Common/MiscNamespaceDefs.h"
 
 //-----------------------------------------------------------------------------
 
@@ -35,13 +35,13 @@ class MemoryPool {
 
   private:
 
-    Object* RetrieveAvailable();
+    inline Object* RetrieveAvailable();
 
-    size_t InstanceIndex(
+    inline size_t InstanceIndex(
       Object* obj
     ) const;
 
-    void DeleteInstance(
+    inline void DeleteInstance(
       Object* obj
     );
 
@@ -115,7 +115,7 @@ Object* MemoryPool<Object>::New(
 //-----------------------------------------------------------------------------
 
 template <class Object>
-Object* MemoryPool<Object>::RetrieveAvailable()
+inline Object* MemoryPool<Object>::RetrieveAvailable()
 {
   Object* newObj = availables.back();
   availables.pop_back();
@@ -144,7 +144,7 @@ void MemoryPool<Object>::Release(
 //-----------------------------------------------------------------------------
 
 template <class Object>
-size_t MemoryPool<Object>::InstanceIndex(
+inline size_t MemoryPool<Object>::InstanceIndex(
   Object* obj
 ) const
 {
@@ -154,7 +154,7 @@ size_t MemoryPool<Object>::InstanceIndex(
 //-----------------------------------------------------------------------------
 
 template <class Object>
-void MemoryPool<Object>::DeleteInstance(
+inline void MemoryPool<Object>::DeleteInstance(
   Object* obj
 )
 {

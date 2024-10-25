@@ -1,4 +1,4 @@
-#include "Buffer/IndexedBuffer.h"
+#include "Misc/Buffer/IndexedBuffer.h"
 
 //-----------------------------------------------------------------------------
 
