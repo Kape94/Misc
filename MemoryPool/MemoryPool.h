@@ -1,5 +1,5 @@
-#ifndef MISC_MEMORY_POOL
-#define MISC_MEMORY_POOL
+#ifndef MISC_MEMORY_POOL_H
+#define MISC_MEMORY_POOL_H
 
 #include <unordered_set>
 #include <vector>

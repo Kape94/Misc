@@ -1,5 +1,5 @@
-#ifndef MISC_INDEXED_BUFFER
-#define MISC_INDEXED_BUFFER
+#ifndef MISC_INDEXED_BUFFER_H
+#define MISC_INDEXED_BUFFER_H
 
 #include <vector>
 

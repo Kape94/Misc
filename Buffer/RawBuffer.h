@@ -1,5 +1,5 @@
-#ifndef MISC_RAW_BUFFER
-#define MISC_RAW_BUFFER
+#ifndef MISC_RAW_BUFFER_H
+#define MISC_RAW_BUFFER_H
 
 #include "Misc/Common/MiscNamespaceDefs.h"
 
