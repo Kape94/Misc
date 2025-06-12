@@ -21,7 +21,7 @@ ThreadPoolWorker::ThreadPoolWorker(
 ThreadPoolWorker::ThreadPoolWorker(
   ThreadPoolWorker&& other
 ) : Worker(std::move(other)),
-  tasks(std::move(other.tasks))
+  tasks(other.tasks)
 {
 }
 
