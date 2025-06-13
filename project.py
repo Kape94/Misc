@@ -44,12 +44,24 @@ def handle_add_command(packages_to_add):
         path_to_vcpkg = "vcpkg/vcpkg"
     else:
         path_to_vcpkg = "vcpkg/vcpkg.exe"
-    vcpkg_install = [path_to_vcpkg, "install"]
-    vcpkg_install.extend(packages_to_add)
+    vcpkg_add_port = [path_to_vcpkg, "add", "port"]
+    vcpkg_add_port.extend(packages_to_add)
 
-    run_command(vcpkg_install)
+    run_command(vcpkg_add_port)
 
 # -----------------------------------------------------------------------------
+
+# Install command -------------------------------------------------------------
+
+def handle_install_command():
+    
+    if os.name == "posix":
+        path_to_vcpkg = "vcpkg/vcpkg"
+    else:
+        path_to_vcpkg = "vcpkg/vcpkg.exe"
+    vcpkg_install = [path_to_vcpkg, "install"]
+
+    run_command(vcpkg_install)
 
 # Init command ----------------------------------------------------------------
 
@@ -75,7 +87,7 @@ def handle_init_command():
 
     os.chdir("..")
 
-    handle_add_command(["vcpkg-cmake", "vcpkg-cmake-config"])
+    handle_install_command()
 
 
 # -----------------------------------------------------------------------------
@@ -108,6 +120,8 @@ def main():
         default=[],
         help="Packages list to forward to vcpkg install. Must be the last parameter, if used!"
     )
+
+    subparsers.add_parser("install")
     
     args = parser.parse_args()
 
@@ -117,7 +131,9 @@ def main():
         handle_init_command()
     elif args.command == "add":
         handle_add_command(args.vcpkg_packages)
-
+    elif args.command == "install":
+        handle_install_command()
+    
 
 if __name__ == "__main__":
     main()
