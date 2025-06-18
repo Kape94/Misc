@@ -1,6 +1,12 @@
 #include "PipeHost.h"
 
+#include <chrono>
 #include <iostream>
+#include <thread>
+
+// ----------------------------------------------------------------------------
+
+using namespace std::chrono_literals;
 
 // ----------------------------------------------------------------------------
 
@@ -18,6 +24,48 @@ PipeHost::PipeHost(
 
 PipeHost::~PipeHost()
 {
+    StopListening();
+}
+
+// ----------------------------------------------------------------------------
+
+void PipeHost::OnDataReceived(
+    DataReceivedFn dataReceivedFunction
+)
+{
+    onDataReceived = dataReceivedFunction;
+}
+
+// ----------------------------------------------------------------------------
+
+void PipeHost::Listen()
+{
+    isListening = true;
+
+    listeningThread = std::thread([&](){
+        std::cout << "Started listening" << std::endl;
+        while (isListening)
+        {
+            const std::string data = pipe.Read();
+            if (data != "" && onDataReceived != nullptr)
+            {
+                onDataReceived(data);
+            }
+            std::this_thread::sleep_for(10ms);
+        }
+        std::cout << "Stopped listening" << std::endl;
+    });
+}
+
+// ----------------------------------------------------------------------------
+
+void PipeHost::StopListening()
+{
+    if (isListening)
+    {
+        isListening = false;
+        listeningThread.join();
+    }
 }
 
 // ----------------------------------------------------------------------------
