@@ -16,6 +16,7 @@ target_link_libraries(${PROJECT_NAME}
     MiscBuffer
     MiscThread
     MiscMemoryPool
+    MiscIPC
 )
 
 option(BUILD_SAMPLES OFF)

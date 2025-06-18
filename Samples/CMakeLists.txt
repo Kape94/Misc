@@ -9,3 +9,6 @@ target_link_libraries(ex3-memoryPoolLoadTest Misc)
 
 add_executable(ex4-threadPool ex4-threadPool.cpp)
 target_link_libraries(ex4-threadPool Misc)
+
+add_executable(ex5-posixPipeUsage ex5-posixPipeUsage.cpp)
+target_link_libraries(ex5-posixPipeUsage Misc)

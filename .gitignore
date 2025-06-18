@@ -4,3 +4,6 @@ vcpkg_installed/
 
 # build
 build/
+
+# vscode
+.vscode/
