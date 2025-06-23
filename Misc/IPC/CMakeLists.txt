@@ -1,8 +1,6 @@
 set(SRC_FILES
     _internal/PipeHost.cpp
     _internal/PipeWriter.cpp
-    _internal/posix/PosixPipeHost.cpp
-    _internal/posix/PosixPipeWriter.cpp
 )
 
 
