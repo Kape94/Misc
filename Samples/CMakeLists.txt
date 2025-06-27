@@ -12,3 +12,6 @@ target_link_libraries(ex4-threadPool Misc)
 
 add_executable(ex5-pipeUsage ex5-pipeUsage.cpp)
 target_link_libraries(ex5-pipeUsage Misc)
+
+add_executable(ex6-processUsage ex6-processUsage.cpp)
+target_link_libraries(ex6-processUsage Misc)

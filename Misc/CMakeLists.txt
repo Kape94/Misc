@@ -1,4 +1,5 @@
 add_subdirectory(Buffer)
+add_subdirectory(Process)
 add_subdirectory(IPC)
 add_subdirectory(MemoryPool)
 add_subdirectory(Thread)
