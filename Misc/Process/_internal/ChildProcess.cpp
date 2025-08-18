@@ -57,14 +57,20 @@ void ChildProcess::WatchProcess()
     int status;
     waitpid(m_pid, &status, 0);
 
-    if (WIFEXITED(status) && m_onExit != nullptr)
+    if (WIFEXITED(status))
     {
-        m_onExit(WEXITSTATUS(status));
+        if (m_onExit != nullptr)
+        {
+            m_onExit(WEXITSTATUS(status));
+        }
         m_pid = 0;
     }
-    else if (WIFSIGNALED(status) && m_onTerminate != nullptr)
+    else if (WIFSIGNALED(status))
     {
-        m_onTerminate(WTERMSIG(status));
+        if (m_onTerminate != nullptr)
+        {
+            m_onTerminate(WTERMSIG(status));
+        }
         m_pid = 0;
     }
 }

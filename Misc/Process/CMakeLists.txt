@@ -1,5 +1,6 @@
 set(SRC_FILES
     _internal/ChildProcess.cpp
+    _internal/ProcessInfo.cpp
 )
 
 set(TARGET_NAME MiscProcess)

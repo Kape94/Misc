@@ -15,3 +15,6 @@ target_link_libraries(ex5-pipeUsage Misc)
 
 add_executable(ex6-processUsage ex6-processUsage.cpp)
 target_link_libraries(ex6-processUsage Misc)
+
+add_executable(ex7-processInfoUsage ex7-processInfoUsage.cpp)
+target_link_libraries(ex7-processInfoUsage Misc)

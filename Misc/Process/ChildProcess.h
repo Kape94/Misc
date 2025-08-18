@@ -23,6 +23,8 @@ class ChildProcess {
 
         void Terminate();
 
+        int GetPID() const;
+
         using ProcessExitFn = std::function<void(int)>;
         void OnExit(
             ProcessExitFn fn
@@ -31,8 +33,6 @@ class ChildProcess {
         void OnTerminated(
             ProcessExitFn fn
         );
-
-        int GetPID() const;
 
     private:
 
