@@ -86,7 +86,10 @@ ChildProcess::~ChildProcess()
 
 void ChildProcess::Await()
 {
-    m_processWatcher.join();
+    if (m_processWatcher.joinable())
+    {
+        m_processWatcher.join();
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -96,7 +99,7 @@ void ChildProcess::Terminate()
     if (m_pid > 0)
     {
         kill(m_pid, SIGTERM);
-        m_processWatcher.join();
+        Await();
     }
 }
 

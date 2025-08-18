@@ -28,8 +28,8 @@ int main()
     std::cout << "Process " << std::endl;
     std::cout << "Process " << processInfo.GetName() << " is running?" << processInfo.IsRunning() << std::endl;
 
-    //process.Terminate();
-    //process.Await();
+    process.Terminate();
+    process.Await();
 
     std::cout << "Process is still running? " << processInfo.IsRunning() << std::endl;
     
