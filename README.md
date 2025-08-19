@@ -9,9 +9,12 @@ Currently, there just a few modules, but hopefully this will grow over time. The
 
 ## Build
 
-In order to build the library with the samples you can call:
+For building this project I used the CppM tool (https://github.com/Kape94/CppM). 
+
+You can build the library with the samples by calling:
 
 ```bash
-python project.py build --cmake_args -DBUILD_SAMPLES=ON
+cppm install
+cppm build --cmake_args -DBUILD_SAMPLES=ON
 ```
 
